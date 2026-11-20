@@ -12,7 +12,7 @@ jobs:
         with:
           distribution: temurin
           java-version: 17
-      - run: bash setup.sh
+      - run: bash build-apk.yml
       - run: cd android && chmod +x gradlew && ./gradlew assembleDebug
       - uses: actions/upload-artifact@v4
         with:
