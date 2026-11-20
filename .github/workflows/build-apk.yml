@@ -21,6 +21,14 @@ jobs:
           java-version: 17
 
       - name: Install dependencies
+        name: Prepare web files
+        run: |
+          mkdir -p www/icons
+          [ -f www/index.html ] || cp index.html www/index.html
+          [ -f www/manifest.json ] || cp manifest.json www/ 2>/dev/null || true
+          [ -f www/sw.js ] || cp sw.js www/ 2>/dev/null || true
+          [ -d icons ] && cp -rn icons/. www/icons/ || true
+          ls -R www
         run: npm install
 
       - name: Add Android platform
