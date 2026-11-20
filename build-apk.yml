@@ -26,7 +26,8 @@ jobs:
       - name: Add Android platform
         run: npx cap add android
 
-      - name: Set launcher icons
+      - - name: Set launcher icons
+        continue-on-error: true
         run: |
           pip install pillow
           python3 make_icons.py
